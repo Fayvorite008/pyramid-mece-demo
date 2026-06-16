@@ -1,0 +1,7 @@
+:root { --bg: #2D1654; --gold: #F5A623; --bad: #D85A30; --good: #1D9E75; --text: #E0E0E0; }
+body { background: var(--bg); color: var(--text); font-family: sans-serif; padding: 40px; }
+.sentence { padding: 10px; margin: 5px 0; border-bottom: 1px solid #444; cursor: pointer; }
+.sentence:hover { background: rgba(255,255,255,0.1); }
+.problem-highlight { color: var(--bad); font-weight: bold; border-bottom: 2px solid var(--bad); }
+.good-output { margin-top: 20px; padding: 20px; border: 2px solid var(--good); background: rgba(29, 158, 117, 0.1); white-space: pre-wrap; }
+button { background: var(--gold); border: none; padding: 15px 30px; cursor: pointer; font-size: 16px; margin-top: 20px; }
