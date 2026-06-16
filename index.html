@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { background: #2D1654; color: #E0E0E0; font-family: sans-serif; padding: 20px; }
+        .box { background: rgba(0,0,0,0.3); padding: 30px; border-radius: 15px; border: 2px solid #F5A623; max-width: 900px; margin: auto; margin-bottom: 40px; }
+        h1 { color: #F5A623; border-bottom: 2px solid #F5A623; padding-bottom: 10px; }
+        .sentence { padding: 12px; cursor: pointer; border-bottom: 1px solid #444; transition: 0.2s; }
+        .sentence:hover { background: rgba(255,255,255,0.1); }
+        .note { color: #D85A30; font-weight: bold; margin-top: 8px; font-size: 0.95em; display: none; }
+        .good-section { display: none; margin-top: 25px; padding: 25px; border: 2px solid #1D9E75; background: rgba(29, 158, 117, 0.1); }
+        button { background: #F5A623; border: none; padding: 12px 24px; cursor: pointer; font-weight: bold; margin-top: 20px; color: #2D1654; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <!-- Round 1: Pyramid Principle -->
+    <div class="box">
+        <h1>Round 1: Pyramid Principle</h1>
+        <div id="bad-example-1">
+            <div class="sentence" onclick="this.querySelector('.note').style.display='block'">
+                本周 Paid Ads 这边，总消耗是 $2,841.30，比上周的 $2,377.55 增加了不少。
+                <div class="note">❌ 问题：先抛数字，没有结论——这个数字说明好还是坏？</div>
+            </div>
+            <div class="sentence" onclick="this.querySelector('.note').style.display='block'">
+                CPA 的话从 $13.92 降到了 $14.35，其实差不多。
+                <div class="note">❌ 问题：CPA 是升还是降？自相矛盾，判断模糊。</div>
+            </div>
+            <div class="sentence" onclick="this.querySelector('.note').style.display='block'">
+                有所回升……还不错……偏高……慢慢剥离。
+                <div class="note">❌ 问题：全是形容词，没有任何结构性判断。</div>
+            </div>
+        </div>
+        <button onclick="document.getElementById('good-1').style.display='block'">揭示重构方案</button>
+        <div id="good-1" class="good-section">
+            <h3 style="color:#1D9E75">✅ Good Example (金字塔重构)</h3>
+            <p><b>核心结论：</b>本周投放整体回暖，注册量环比+16%，CPA 从峰值回落，ICP 双市场持续产出。</p>
+            <ul><li><b>整体效率回升：</b>注册量 198，环比 +16%；CVR 回升 0.8pp。</li><li><b>ICP 双市场：</b>澳洲 PMAX 12 转，波兰 Search 5 转。</li><li><b>三处止损：</b>Brand Leakage 压降、竞对词剥离、YouTube 预算转移。</li></ul>
+        </div>
+    </div>
+
+    <!-- Round 2: MECE Principle -->
+    <div class="box">
+        <h1>Round 2: MECE Principle</h1>
+        <div id="bad-example-2">
+            <div class="sentence" onclick="this.querySelector('.note').style.display='block'">
+                技术上有个问题是 Group Chat 现在不支持，要等 Q3。然后 Onboarding SOP 我写了初版。
+                <div class="note">❌ 问题：完成项、卡点全混在一起，典型流水账。</div>
+            </div>
+            <div class="sentence" onclick="this.querySelector('.note').style.display='block'">
+                Broadcasting 上传 169 个客户，送达 113 人。然后有 4 个客户真实回复了，CVR 大概 2%。
+                <div class="note">❌ 问题：执行数据和效果数据被拆开，位置混乱。</div>
+            </div>
+            <div class="sentence" onclick="this.querySelector('.note').style.display='block'">
+                月付方案还在等 G 那边确认。Sales Routing 规则还没定，在等 Oliver 那边的决策。
+                <div class="note">❌ 问题：两项“外部决策”分散表达，没有合并。</div>
+            </div>
+        </div>
+        <button onclick="document.getElementById('good-2').style.display='block'">揭示重构方案</button>
+        <div id="good-2" class="good-section">
+            <h3 style="color:#1D9E75">✅ Good Example (MECE 拆解)</h3>
+            <ul><li><b>✅ 已完成（系统建设）：</b>30 席位确认，四平台话术覆盖，SOP 完成。</li><li><b>🔄 进行中（执行验证）：</b>Broadcasting 首轮验证，本周试点 Sales 分单测试。</li><li><b>⏳ 待解锁（外部依赖）：</b>Sales Routing 决策，月付确认，技术排期。</li></ul>
+        </div>
+    </div>
+
+</body>
+</html>
