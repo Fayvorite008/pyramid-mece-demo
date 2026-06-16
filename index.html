@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <style>
-        body { background: #2D1654; color: #E0E0E0; font-family: sans-serif; padding: 20px; }
-        .box { background: rgba(0,0,0,0.3); padding: 30px; border-radius: 15px; border: 2px solid #F5A623; max-width: 900px; margin: auto; margin-bottom: 40px; }
-        h1 { color: #F5A623; border-bottom: 2px solid #F5A623; padding-bottom: 10px; }
-        .sentence { padding: 12px; cursor: pointer; border-bottom: 1px solid #444; transition: 0.2s; }
-        .sentence:hover { background: rgba(255,255,255,0.1); }
-        .note { color: #D85A30; font-weight: bold; margin-top: 8px; font-size: 0.95em; display: none; }
-        .good-section { display: none; margin-top: 25px; padding: 25px; border: 2px solid #1D9E75; background: rgba(29, 158, 117, 0.1); }
-        button { background: #F5A623; border: none; padding: 12px 24px; cursor: pointer; font-weight: bold; margin-top: 20px; color: #2D1654; border-radius: 5px; }
+        body { background: #2D1654; color: #E0E0E0; font-family: 'Segoe UI', sans-serif; padding: 40px; line-height: 1.6; }
+        .box { background: rgba(0,0,0,0.3); padding: 30px; border-radius: 12px; border: 1px solid #F5A623; max-width: 1000px; margin: auto; margin-bottom: 50px; }
+        h1 { color: #F5A623; margin-top: 0; border-bottom: 1px solid rgba(245, 166, 35, 0.3); padding-bottom: 15px;}
+        .sentence { padding: 15px; cursor: pointer; border-bottom: 1px dashed #555; transition: 0.3s; }
+        .sentence:hover { background: rgba(245, 166, 35, 0.1); border-left: 4px solid #F5A623; }
+        .note { color: #D85A30; font-weight: bold; margin-top: 10px; display: none; padding: 10px; background: rgba(216, 90, 48, 0.1); border-radius: 4px;}
+        .good-section { display: none; margin-top: 30px; padding: 30px; border: 1px solid #1D9E75; background: rgba(29, 158, 117, 0.05); border-radius: 8px;}
+        .good-section h3 { color: #1D9E75; margin-top: 0; }
+        .good-section ul { padding-left: 20px; }
+        .good-section li { margin-bottom: 10px; }
+        button { background: #F5A623; color: #2D1654; border: none; padding: 15px 30px; cursor: pointer; font-weight: bold; margin-top: 25px; border-radius: 4px; font-size: 16px; transition: 0.2s;}
+        button:hover { background: #ffbc42; transform: translateY(-2px); }
+        .instruction { font-size: 0.9em; color: #aaa; margin-bottom: 20px; }
     </style>
 </head>
 <body>
@@ -18,49 +23,102 @@
     <!-- Round 1: Pyramid Principle -->
     <div class="box">
         <h1>Round 1: Pyramid Principle</h1>
+        <p class="instruction">👇 现场演示：点击下方流水账文本中的句子，揭示逻辑问题。</p>
         <div id="bad-example-1">
             <div class="sentence" onclick="this.querySelector('.note').style.display='block'">
                 本周 Paid Ads 这边，总消耗是 $2,841.30，比上周的 $2,377.55 增加了不少。
                 <div class="note">❌ 问题：先抛数字，没有结论——这个数字说明好还是坏？</div>
             </div>
             <div class="sentence" onclick="this.querySelector('.note').style.display='block'">
-                CPA 的话从 $13.92 降到了 $14.35，其实差不多。
+                转化方面，注册量是 198 个，上周是 170 个，有所回升。CPA 的话从 $13.92 降到了 $14.35，其实差不多。
                 <div class="note">❌ 问题：CPA 是升还是降？自相矛盾，判断模糊。</div>
             </div>
             <div class="sentence" onclick="this.querySelector('.note').style.display='block'">
-                有所回升……还不错……偏高……慢慢剥离。
-                <div class="note">❌ 问题：全是形容词，没有任何结构性判断。</div>
+                分渠道来看，Search 这边 Brand 词消耗还是很高，大概占了总消耗的 25% 左右。PMAX 方面，澳洲和波兰的系列跑得还不错，澳洲出了 12 个转化，波兰出了 5 个。YouTube 上周砍掉了，所以这周 impression 有点下来了，但 CVR 其实回升了一些。Health & Beauty 这个品类 CPA 还是偏高，在 $28 左右，我们在想要不要继续跑。然后竞对词这边已经把 dropshipping 相关的词慢慢剥离了，现在主要保留 B2B 大客方向的词。Social 这边本周发了 4 条内容，Instagram 表现还可以，LinkedIn 有一条帖子互动率比较高。
+                <div class="note">❌ 问题："有所回升……还不错……偏高……慢慢剥离"全是形容词，没有任何结构性判断；三个"然后"，典型流水账，没有逻辑层级。</div>
+            </div>
+            <div class="sentence" onclick="this.querySelector('.note').style.display='block'">
+                下周计划的话，打算在澳洲继续加预算，同时出一批新的 supply chain 素材。
+                <div class="note">❌ 问题：行动项藏在最后，听的人要自己找。</div>
             </div>
         </div>
-        <button onclick="document.getElementById('good-1').style.display='block'">揭示重构方案</button>
+        
+        <button onclick="document.getElementById('good-1').style.display='block'">揭示金字塔重构方案</button>
+        
         <div id="good-1" class="good-section">
-            <h3 style="color:#1D9E75">✅ Good Example (金字塔重构)</h3>
-            <p><b>核心结论：</b>本周投放整体回暖，注册量环比+16%，CPA 从峰值回落，ICP 双市场持续产出。</p>
-            <ul><li><b>整体效率回升：</b>注册量 198，环比 +16%；CVR 回升 0.8pp。</li><li><b>ICP 双市场：</b>澳洲 PMAX 12 转，波兰 Search 5 转。</li><li><b>三处止损：</b>Brand Leakage 压降、竞对词剥离、YouTube 预算转移。</li></ul>
+            <h3>✅ Good Example（金字塔重构）</h3>
+            <p><b>核心结论：</b>本周投放整体回暖，注册量环比+16%，CPA 从峰值回落，ICP 双市场持续产出，三处止损动作已落地见效。</p>
+            <ul>
+                <li><b>1. 整体效率回升：</b>
+                    <ul>
+                        <li>注册量 198，环比 +16%；CPA $14.35，较上周峰值 $13.92 基本持平但结构更健康。</li>
+                        <li>CVR 回升 0.8pp：YouTube 砍掉后流量质量明显改善，"宽进严出"变"精准进入"。</li>
+                    </ul>
+                </li>
+                <li><b>2. ICP 双市场稳定产出：</b>
+                    <ul>
+                        <li>澳洲 PMAX：12 个转化，CPA $18.2，维持健康水位。</li>
+                        <li>波兰 Search：5 个转化，持续积累数据，冷启动阶段符合预期。</li>
+                    </ul>
+                </li>
+                <li><b>3. 三处止损已落地：</b>
+                    <ul>
+                        <li>Brand Leakage：否定词 login/sign in/tracking 已加入全局列表，品牌词消耗占比从 25% 压降至 18%。</li>
+                        <li>竞对词：dropshipping 方向词已完成剥离，仅保留 B2B 大客词，跳出率下降明显。</li>
+                        <li>YouTube：全部预算已转移至 B2B Search，impression 下降但 CVR 回升印证决策正确。</li>
+                    </ul>
+                </li>
+            </ul>
+            <p><b>下周重点：</b>澳洲追加预算，supply chain 新素材上线，Health & Beauty CPA 持续观察，若下周仍高于 $25 则暂停该品类。</p>
         </div>
     </div>
 
     <!-- Round 2: MECE Principle -->
     <div class="box">
         <h1>Round 2: MECE Principle</h1>
+        <p class="instruction">👇 现场演示：点击下方流水账文本中的句子，揭示分类问题。</p>
         <div id="bad-example-2">
             <div class="sentence" onclick="this.querySelector('.note').style.display='block'">
-                技术上有个问题是 Group Chat 现在不支持，要等 Q3。然后 Onboarding SOP 我写了初版。
-                <div class="note">❌ 问题：完成项、卡点全混在一起，典型流水账。</div>
+                WhatsApp 这边进展还可以，我们和 WATI 确认了席位是 30 个，每个席位 $25/月。技术上有个问题是 Group Chat 现在不支持，要等 Q3。然后 Onboarding SOP 我写了初版。Sales Routing 的规则还没定，在等 Oliver 那边的决策。
+                <div class="note">❌ 问题："技术上有个问题……然后 SOP 我写了……然后 Sales Routing……" 四个"然后"串联，完成项/卡点/数据全混在一起。</div>
             </div>
             <div class="sentence" onclick="this.querySelector('.note').style.display='block'">
-                Broadcasting 上传 169 个客户，送达 113 人。然后有 4 个客户真实回复了，CVR 大概 2%。
-                <div class="note">❌ 问题：执行数据和效果数据被拆开，位置混乱。</div>
+                Broadcasting 上周跑了一轮，上传了 169 个客户，送达 113 个，送达率 81%。话术方面，我们把 WooCommerce、Etsy、TikTok Shop 还有自建站的都补全了。然后有 4 个客户真实回复了，CVR 大概 2%。
+                <div class="note">❌ 问题："Broadcasting 上传169，送达113"这属于执行数据，和"4个真实回复 CVR 2%"这同类的效果数据，却被拆开放在不同位置。</div>
             </div>
             <div class="sentence" onclick="this.querySelector('.note').style.display='block'">
-                月付方案还在等 G 那边确认。Sales Routing 规则还没定，在等 Oliver 那边的决策。
-                <div class="note">❌ 问题：两项“外部决策”分散表达，没有合并。</div>
+                月付的方案还在等 G 那边确认。官网浮窗和 WATI 有冲突，还没解决。本周打算试点邀请第一批 Sales 入驻，测试一下 2 分钟响应时效，看看分单逻辑能不能跑通。
+                <div class="note">❌ 问题："月付方案等 G 确认"和"Sales Routing 等 Oliver"，两个"等待外部决策"的事项没有归在一起；"官网浮窗"技术卡点单独游离；最后才出现本周计划，且是否穷尽存疑。</div>
             </div>
         </div>
-        <button onclick="document.getElementById('good-2').style.display='block'">揭示重构方案</button>
+
+        <button onclick="document.getElementById('good-2').style.display='block'">揭示 MECE 拆解方案</button>
+
         <div id="good-2" class="good-section">
-            <h3 style="color:#1D9E75">✅ Good Example (MECE 拆解)</h3>
-            <ul><li><b>✅ 已完成（系统建设）：</b>30 席位确认，四平台话术覆盖，SOP 完成。</li><li><b>🔄 进行中（执行验证）：</b>Broadcasting 首轮验证，本周试点 Sales 分单测试。</li><li><b>⏳ 待解锁（外部依赖）：</b>Sales Routing 决策，月付确认，技术排期。</li></ul>
+            <h3>✅ Good Example（MECE 拆解）</h3>
+            <ul>
+                <li><b>✅ 已完成（系统建设）</b>
+                    <ul>
+                        <li>商务确认：30 席位，$25/月/席位，版本选型完成。</li>
+                        <li>话术全覆盖：WooCommerce、Etsy、TikTok Shop、自建站四平台统一。</li>
+                        <li>Onboarding SOP 初版完成，具备首批 Sales 入驻条件。</li>
+                    </ul>
+                </li>
+                <li><b>🔄 进行中（执行验证）</b>
+                    <ul>
+                        <li>Broadcasting 首轮：上传 169 人，送达 113 人（送达率 81%）。</li>
+                        <li>初步回收 4 个真实回复，CVR 约 2%，预计长尾效应可达 4%。</li>
+                        <li>本周试点：邀请首批 Sales 入驻，实测 2 分钟响应时效与分单逻辑。</li>
+                    </ul>
+                </li>
+                <li><b>⏳ 待解锁（外部依赖）</b>
+                    <ul>
+                        <li>Sales Routing 规则：等待 Oliver 决策，解锁后立即执行。</li>
+                        <li>月付方案：等待 G 确认，影响正式上线节点。</li>
+                        <li>技术红线：Group Chat 排期 Q3；官网浮窗冲突已识别，待技术排期解决。</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
 
